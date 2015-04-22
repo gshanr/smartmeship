@@ -1,0 +1,9 @@
+#script that activates instantiates and wires a component
+#depending on args
+#0 : componentID
+#1 : targetNode
+#2 : interface type
+#3 : targetNodeOfWire
+instId = instantiate $args0$ $args1$
+wireTo $args2$ $instId$ $args1$ $args3$
+activate $instId$ $args1$

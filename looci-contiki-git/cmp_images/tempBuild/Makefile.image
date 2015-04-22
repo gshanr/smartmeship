@@ -1,0 +1,12 @@
+$(warning "Notify : building tempSample application image")
+
+CFLAGS += -DMY_NR_COMPS=2
+CFLAGS += -DMY_COMPS=reconfig__C,temp_sensor__C
+
+## added dir for preloaded components
+PROJECTDIRS += /Users/gowrir/smartmeship/looci-contiki-git/components/tutorialComponents/tempSensor
+PROJECT_SOURCEFILES += tempSensor.c 
+
+
+## Define if the image-init file needs to be executed
+WITH_IMG_INIT=1

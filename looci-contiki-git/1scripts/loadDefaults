@@ -1,0 +1,19 @@
+#!/bin/bash
+
+##This file will load the default options for building the looci core image
+## The current files will be saved in a save folder.
+
+cd ../build
+NOW=$(date +"%s")
+echo $NOW
+DIR="save_$NOW"
+mkdir $DIR
+mv Makefile.debug $DIR
+mv Makefile.options $DIR
+mv Makefile.programmer $DIR
+mv Makefile.target $DIR
+cd defaults
+cp Makefile.debug ../
+cp Makefile.options ../
+cp Makefile.programmer ../
+cp Makefile.target ../

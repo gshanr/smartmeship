@@ -1,0 +1,6 @@
+<osgiInfo>
+   <ownerId>1</ownerId>
+   <partyId>1</partyId>
+   <ownerKeyHex>aabbccddeeff00112233445566778899</ownerKeyHex>
+   <secureOsgi>true</secureOsgi>
+</osgiInfo>

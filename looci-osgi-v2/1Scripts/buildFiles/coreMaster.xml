@@ -1,0 +1,50 @@
+<project name="federationMaster" basedir="." default="clean">
+	<property environment="env"/>
+	
+	<property name="felix.dir"   value="${env.LOOCI}/lnk/lc_osgi/LoociCore/Felix"/>	
+	<property name="dup.dir"     value="${felix.dir}/bundle/plugins"/>
+	<property name="comp.dir"     value="${env.LOOCI}/components"/>
+	<property name="src.dir"     value="src"/>
+	<property name="build.dir"   value="build"/>
+	<property name="classes.dir" value="${build.dir}/classes"/>
+	<property name="jar.dir"     value="${build.dir}/jar"/>
+	
+	<property name="felix.jar" 					value="${felix.dir}/bin/felix.jar"/>
+	<property name="loociservices.jar" 			value="${dup.dir}/LoociOsgiServices.jar"/>
+	<property name="loociservicesext.jar" 		value="${dup.dir}/LoociOsgiServicesExt.jar"/>
+	<property name="loociutils.jar" 			value="${dup.dir}/LoociOsgiUtils.jar"/>
+	<property name="loociGui.jar"				value="${dup.dir}/LoociOsgiGuiClient.jar"/>
+	
+	<target name="clean">
+		<echo>Cleaning up ...</echo>
+	    <delete dir="${build.dir}"/>
+		<delete dir="classes/"/>
+		<delete dir="bin/"/>
+	</target>
+	
+	<target name="copy" if="dup.dir">
+		<copy file="${jar.dir}/${ant.project.name}.jar" 
+			  				todir="${dup.dir}"/>
+	</target>
+	
+	<target name="copy-comp" if="comp.dir">
+		<copy file="${jar.dir}/${ant.project.name}.jar" 
+			  				todir="${comp.dir}"/>
+	</target>
+  
+	<target name="compile">
+	</target>
+	
+	<target name="jar" depends="compile">
+	   <mkdir dir="${jar.dir}"/>
+	    <jar destfile="${jar.dir}/${ant.project.name}.jar" 
+		 basedir="${classes.dir}" manifest="META-INF/MANIFEST.MF"/>
+	  </target>
+	
+  	<target name="clean-build" depends="clean,jar,copy"/>
+	
+
+  	<target name="clean-build-comp" depends="clean,jar,copy-comp"/>
+	
+	
+</project>

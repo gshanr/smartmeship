@@ -1,0 +1,15 @@
+# Make sure the mac address isn't overwritten
+CFLAGS += -DCFS_EEPROM_CONF_OFFSET=64
+#CFLAGS += -DUIP_CONF_TCP_MSS=70
+
+ifndef WITH_RAVEN_GUI
+  #disable by default
+  WITH_RAVEN_GUI=0  
+endif
+
+ifneq ($(WITH_RAVEN_GUI),0)
+  CFLAGS+= -DWITH_RAVEN_GUI
+endif
+
+
+include $(LOOCI_CONTIKI)/cpu/avr/Makefile.avr

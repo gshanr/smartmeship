@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "cleaning build and comp files"
+cd ../build
+rm debug.txt 2> /tmp/temp.txt
+make clean TARGET=avr-raven >> /tmp/temp.txt
+make clean TARGET=avr-zigduino >> /tmp/temp.txt
+cd ..
+
+find ./ -name *.comp -delete
+
+echo "done clean"

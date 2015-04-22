@@ -1,0 +1,26 @@
+<OsgiInfo>
+<ownerId type="short">1</ownerId>
+<ownerIp type="string"/>
+<ownerName type="string"/>
+<partyId type="short">1</partyId>
+<ownerKeyHex type="string">aabbccddeeff00112233445566778899</ownerKeyHex>
+<secureOsgi type="boolean">true</secureOsgi>
+<defaultUser type="string">user1.xml</defaultUser>
+<localUsers>
+<_0>
+<nodePermission type="byte">4</nodePermission>
+<key type="byteArray">aaaabbbbccccddddaaaabbbbccccdddd</key>
+<count type="short">0</count>
+<userId type="short">2</userId>
+<partyId type="short">2</partyId>
+<nodeId type="string">aaab::1</nodeId>
+<permissions>
+<_0>
+<Party type="short">2</Party>
+<permission type="byte">4</permission>
+</_0>
+</permissions>
+<rangePermissions/>
+</_0>
+</localUsers>
+</OsgiInfo>

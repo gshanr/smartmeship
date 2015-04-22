@@ -1,0 +1,57 @@
+About the test
+==============
+
+This test is a compliance test for LooCI implementations. It checks whether an implementation reacts and replies in the specified manner to LooCI Management events.
+Management events are send using the LoociMgtAPI (available in LoociOsgiMgtClient). This class awaits the return of a matching reply and returns it to the test.
+The test itself thus does NOT check whether the replies are of the correct/expected type.
+It does test whether the reply conforms with what is expected:
+    - success/error code
+    - contents of the reply (repeated request and result)
+
+The complete test consists of multiple sub-tests which can be executed individually or all in one go. Each sub-test resets the node under test when it is finished.
+
+The test is constructed to be as generic as possible wrt the values of codebase IDs, component IDs etc. Yet some assumptions where made wrt IDs that should not be
+in use when no codebases and components are deployed/instantiated.
+
+The test is by no means a complete test of the LooCI implementation; it only provides insight in whether an implementation is interoperable with the LooCI Management
+tools and other compliant implementations. Internal behaviour of the implementation is not explicitely tested.
+
+Configuring the test
+====================
+
+The test can be configured using .xml files. Templates of these are available in the conf-folder of this project.
+The effective configuration files should however be placed in the conf-folder of Felix: LooCiCore/Felix/conf
+
+In test.java set the following variables to appropriate values:
+* platform:	looci.xxx
+* node_1:	IPv6 address of node 1
+* node_2:	IPv6 address of node 2
+* tempSensor:	the path to the deployable file containing a valid tempSensor component (see below)
+* tempFilter:	the path to the deployable file containing a valid tempFilter component (see below)
+* sensorName:   codebase name of the tempSensor
+* filterName:   codebase name of the tempFilter
+* enable-flags for the various tests
+
+Specification of the components used in the test
+================================================
+
+tempSensor:
+* no required interfaces
+* provided interface: 257 (temperature event)
+* no properties
+
+tempFilter:
+* required interface: 257 (temperature event)
+* provided interface: 257 (temperature event)
+* properties:
+	- threshold: id = 1, name = threshold, type = byte, initial value = 20
+
+Executing the test
+==================
+
+* build the test using: ant jar
+* edit the appropriate .xml config file
+* setup your LooCI network
+* start the test by installing and starting the test's bundle
+* a window will pop-up with the test's results
+

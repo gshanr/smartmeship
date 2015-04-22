@@ -1,0 +1,12 @@
+build/Makefile.programmer
+build/Makefile.target
+build/Makefile.debug
+build/Makefile.options
+.metadata$
+.properties$
+.project$
+.texlipse$
+.settings$
+.class$
+.cproject$
+.pyc$

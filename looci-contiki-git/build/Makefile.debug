@@ -1,0 +1,33 @@
+ ##Enable boot anouncement and time / adress printing
+#CFLAGS += -DLOOCI_CONTIKI_DEBUG
+CFLAGS += -DLOOCI_ANNOUNCE_BOOT
+
+ ##Enable debugging of the core & build packages
+#CFLAGS += -DLOOCI_DEBUG
+#CFLAGS += -DLOOCI_LIB_DEBUG
+#CFLAGS += -DLOOCI_VECTOR_DEBUG
+#CFLAGS += -DLOOCI_INTERCEPT_DEBUG
+#CFLAGS += -DLOOCI_RAVENLCD_DEBUG
+
+ ## Enable debug of the image init functions
+#CFLAGS += -DLOOCI_IMAGE_INIT_DEBUG
+
+ ##Enable debugging of the networkworking framework and peer management
+#CFLAGS += -DLOOCI_NETWORK_DEBUG
+#CFLAGS += -DLOOCI_PEER_DEBUG
+
+ ##Enable debugging of the components package
+CFLAGS += -DLOOCI_CSTORE_DEBUG
+
+ ##Enable debugging of the deployment package
+CFLAGS += -DLOOCI_DEPLOYMENT_DEBUG
+CFLAGS += -DELFLOAD_DEBUG
+
+ ##Enable debugging of the management package
+#CFLAGS += -DLOOCI_MGT_DEBUG
+
+ ##Enable debugging of the events package
+#CFLAGS += -DLOOCI_EVENTS_DEBUG
+
+ ##Enable debugging of any Pre-installed looci component
+CFLAGS += -DLOOCI_COMPONENT_DEBUG

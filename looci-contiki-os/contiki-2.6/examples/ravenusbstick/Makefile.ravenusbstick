@@ -1,0 +1,21 @@
+all: ravenusbstick
+
+#Define CONTIKI_NO_NET=1 for a passthrough ipv6/6lowpan interface using fakeuip.c
+#Define UIP_CONF_IPV6=1 to include the uip6 stack (for rpl, internal webserver)
+#Do make clean when switching to remove the duplicate library modules
+CONTIKI_NO_NET=1
+#UIP_CONF_IPV6=1
+
+ifeq ($(MY_CHANNEL),)
+  -include ${LOOCI}/lnk/lc_contiki/build/Makefile.options
+  ifeq ($(MY_CHANNEL),)
+    ${info MY_CHANNEL not defined, using default}
+  else
+    ${info using saved channel '$(MY_CHANNEL)'}
+  	CFLAGS += -DMY_RADIO_CHANNEL=$(MY_CHANNEL)
+  endif
+endif
+
+CONTIKI = ../..
+
+include $(CONTIKI)/Makefile.include

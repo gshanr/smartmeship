@@ -1,0 +1,13 @@
+$(warning "Notify : building userNode application image")
+
+CFLAGS += -DMY_NR_COMPS=4
+CFLAGS += -DMY_COMPS=reconfig__C,temp_filter__C,button_sensor__C,buzzer_comp__C,
+
+## added dir for preloaded components
+PROJECTDIRS += $(LOOCI_CONTIKI)/components/tutorialComponents/buttonSensor
+PROJECTDIRS += $(LOOCI_CONTIKI)/components/tutorialComponents/buzzerComponent
+PROJECTDIRS += $(LOOCI_CONTIKI)/components/tutorialComponents/tempFilter
+
+PROJECT_SOURCEFILES += tempFilter.c
+PROJECT_SOURCEFILES += buzzerComponent.c
+PROJECT_SOURCEFILES += buttonSensor.c

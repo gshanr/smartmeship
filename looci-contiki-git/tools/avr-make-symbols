@@ -1,0 +1,27 @@
+#!/bin/sh
+
+NM=avr-nm
+
+FILTER1="params|etimer|ctimer|stimer|rime_sniffer|ev_|__C|lc_|looci|cfs_|autostart_|frame802154_|eeprom_|events_|uip_|tcp_|eemem_|elfloader_|default_|hal_|list_|mmem_|memb_|packetbuf_|peer_|queuebuf_|rf230_|RF230_|rimeaddr_|rxframe_|tcpip_|unc_|rs232_|rtimer_|sicslowpan_|sicslowmac_|udp_|vector_|watchdog_|llprefix|main|^ravenlcd_|raven_lcd_|initialize|__iob|process_|malloc|free"
+FILTER2="lcs_|sec_|square|sqrt|^__p|^__m|^__e|^_e|^__dt|^__f|^__v|^__s|^__t|^__do|^__data|^__b|^__c|nullmac_driver|process_alloc_event|remove_ext_hdr|rimestats|rxframe|send_list|slip_arch_writeb|symtab_lookup|^timer_|get_match_length|frag_sender|send_list|input_handler_|icmp6_new|__heap_start|exit|avail_memory|radio_get_trx_state|radioontime|random_init|random_rand|srand|vfprintf|fputc|symbols"
+#other filters for plug ins
+FILTER3="aes_|aes128_"
+SYMBOLS=`$NM $* | perl -ne 'print ".global $2\n$2 = 0x$1\n" if(/([0-9a-f]+) [ABDRST] (.+)$/);' | grep -v _reset_vector | grep = | grep -vE $FILTER1 | grep -vE $FILTER2 | perl -ne 'print "{\"$1\", (char *)$2},\n" if(/(\w+) = (\w+)/)' | wc -l`
+#SYMBOLS=`$NM $* | perl -ne 'print ".global $2\n$2 = 0x$1\n" if(/([0-9a-f]+) [ABDRST] (.+)$/);' | grep -v ^_ | grep -v _reset_vector | grep = | perl -ne 'print "{\"$1\", (char *)$2},\n" if(/(\w+) = (\w+)/)' | wc -l`
+SYMBOLS=`expr $SYMBOLS + 1`
+
+echo \#ifndef __SYMBOLS_H__ > symbols.h
+echo \#define __SYMBOLS_H__ >> symbols.h
+echo \#include '"deployment/symbols-def.h"' >> symbols.h
+echo "extern const struct symbols symbols[$SYMBOLS];" >> symbols.h
+echo \#endif >> symbols.h
+
+echo \#include '"symbols.h"' > symbols.c
+echo \#include '<avr/pgmspace.h>' >> symbols.c
+
+#| grep -v ^_
+$NM $* | perl -ne 'print ".global $2\n$2 = 0x$1\n" if(/([0-9a-f]+) [ABDRST] (.+)$/);'  | grep -v _reset_vector | grep = | grep -vE $FILTER1 | grep -vE $FILTER2| grep -vE $FILTER3  | perl -ne 'print "static const char s_$1 [] PROGMEM = \"$1\";\n" if(/(\w+) = (\w+)/)' | sort >> symbols.c
+
+echo "PROGMEM const struct symbols symbols[] = {" >> symbols.c
+$NM $* | perl -ne 'print ".global $2\n$2 = 0x$1\n" if(/([0-9a-f]+) [ABDRST] (.+)$/);'  | grep -v _reset_vector | grep = | grep -vE $FILTER1 | grep -vE $FILTER2| grep -vE $FILTER3  | perl -ne 'print "{(const char*)s_$1, (symbol_addr_t)$2},\n" if(/(\w+) = (\w+)/)' | sort >> symbols.c
+echo "{(const char *)0, (symbol_addr_t)0} };" >> symbols.c

@@ -1,0 +1,76 @@
+<project name="AALoociCore" basedir="." default="build">
+	
+	<property name="loociMwBase.dir"     value="${basedir}/../.."/>
+	<property name="services.dir" value="${loociMwBase.dir}/LoociCore/LoociOsgiServices"/>
+	<property name="core.dir" value="${loociMwBase.dir}/LoociCore/LoociOsgiCore"/>
+	<property name="felix.dir" value="${loociMwBase.dir}/LoociCore/Felix"/>
+	<property name="servExt.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiServicesExt"/>
+	<property name="utils.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiUtils"/>
+	<property name="mgt.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiMgtClient"/>
+	<property name="gui.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiGuiClient"/>
+	<property name="mgtgui.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiMgtGui"/>
+	<property name="terminal.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiMgtTerminal"/>
+	<property name="deploy.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiDeploy"/>
+	<property name="deployOsgi.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiDeployOsgi"/>
+	<property name="deployRaven.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiDeployRaven"/>
+	<property name="deploySunSPOT.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiDeploySunSPOT"/>
+	<property name="telnet.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiTelnetClient"/>
+	<property name="eventInterceptor.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiEventDebug"/>
+	<property name="visualizer.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiNetworkVisualizer"/>
+	<property name="deploySMesh.dir" value="${loociMwBase.dir}/LoociMgt/LoociOsgiDeploySMesh"/>
+				 
+	
+	<target name="build">
+		<ant antfile="${services.dir}/build.xml" dir="${services.dir}" /> 
+		<ant antfile="${core.dir}/build.xml" dir="${core.dir}" /> 
+		<ant antfile="${servExt.dir}/build.xml" dir="${servExt.dir}" /> 
+		<ant antfile="${utils.dir}/build.xml" dir="${utils.dir}" /> 
+		<ant antfile="${mgt.dir}/build.xml" dir="${mgt.dir}" /> 
+		<ant antfile="${gui.dir}/build.xml" dir="${gui.dir}" /> 
+		<ant antfile="${mgtgui.dir}/build.xml" dir="${mgtgui.dir}" /> 
+		<ant antfile="${terminal.dir}/build.xml" dir="${terminal.dir}" />
+		<ant antfile="${deploy.dir}/build.xml" dir="${deploy.dir}" /> 
+		<ant antfile="${deployOsgi.dir}/build.xml" dir="${deployOsgi.dir}" />
+		<ant antfile="${deployRaven.dir}/build.xml" dir="${deployRaven.dir}" />
+		<ant antfile="${telnet.dir}/build.xml" dir="${telnet.dir}" /> 		
+		<ant antfile="${eventInterceptor.dir}/build.xml" dir="${eventInterceptor.dir}" /> 	
+		<ant antfile="${visualizer.dir}/build.xml" dir="${visualizer.dir}" /> 	
+		<ant antfile="${deploySMesh.dir}/build.xml" dir="${deploySMesh.dir}" />
+	</target>
+	
+	<target name="build-sunspot" depends="build">
+		 <ant antfile="${deploySunSPOT.dir}/build.xml" dir="${deploySunSPOT.dir}" />
+	</target>
+	
+		
+	
+	<target name="clean">
+		<ant antfile="${felix.dir}/build.xml" dir="${felix.dir}" target="clean"/>	 				
+		<ant antfile="${services.dir}/build.xml" dir="${services.dir}" target="clean" /> 
+		<ant antfile="${core.dir}/build.xml" dir="${core.dir}" target="clean"/> 
+		<ant antfile="${servExt.dir}/build.xml" dir="${servExt.dir}" target="clean" />
+		<ant antfile="${utils.dir}/build.xml" dir="${utils.dir}" target="clean"/>  
+		<ant antfile="${mgt.dir}/build.xml" dir="${mgt.dir}"  target="clean"/>
+		<ant antfile="${mgtgui.dir}/build.xml" dir="${mgtgui.dir}" target="clean"/>
+		<ant antfile="${terminal.dir}/build.xml" dir="${terminal.dir}" target="clean" />  
+		<ant antfile="${gui.dir}/build.xml" dir="${gui.dir}" target="clean"/> 
+		<ant antfile="${deploy.dir}/build.xml" dir="${deploy.dir}"  target="clean"/> 
+		<ant antfile="${deployOsgi.dir}/build.xml" dir="${deployOsgi.dir}"  target="clean"/> 
+		<ant antfile="${deployRaven.dir}/build.xml" dir="${deployRaven.dir}"  target="clean"/>
+        <ant antfile="${telnet.dir}/build.xml" dir="${telnet.dir}" target="clean"/> 
+		<ant antfile="${eventInterceptor.dir}/build.xml" dir="${eventInterceptor.dir}" target="clean"/> 	
+		<ant antfile="${visualizer.dir}/build.xml" dir="${visualizer.dir}" target="clean" /> 
+		<ant antfile="${deploySMesh.dir}/build.xml" dir="${deploySMesh.dir}" target="clean" />
+	</target>
+	
+	<target name="clean-sunspot" depends="clean">
+		<ant antfile="${deploySunSPOT.dir}/build.xml" dir="${deploySunSPOT.dir}" target="clean"/>
+	</target>
+	
+	
+	<target name="cleanRun">
+		<ant antfile="${felix.dir}/build.xml" dir="${felix.dir}" target="cleanBeforeRun" /> 
+	</target>
+	
+	
+</project>

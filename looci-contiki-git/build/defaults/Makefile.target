@@ -1,0 +1,2 @@
+#TARGET = avr-raven
+TARGET = avr-zigduino

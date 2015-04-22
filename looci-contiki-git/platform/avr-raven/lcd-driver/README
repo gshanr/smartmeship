@@ -1,0 +1,5 @@
+LooCI LCD interface has moved to $(CONTIKI)/platform/avr-ravenlcd-looci
+
+where $(CONTIKI) is the root of the contiki version with LooCI modifications.
+
+Go there and do 'make upload' to flash your AVR Raven LCD (atmega3290p).

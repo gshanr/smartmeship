@@ -1,0 +1,33 @@
+${info loading AVR raven early makefile}
+
+FUSE_EEPWRITE=0x19
+FUSE_EEPREAD=0x11
+
+FUSES_HIGH=0x11
+FUSES_LOW=0xE2
+FUSES_EXTENDED=0xFF
+
+ifndef AVRDUDE_PROGRAMMER
+	ifeq ($(PROGRAMMER),jtag2)
+		AVRDUDE_PORT=usb
+		AVRDUDE_PROGRAMMER=jtag2
+		AVRDUDE_OPTIONS=
+	endif
+	
+	ifeq ($(PROGRAMMER),jtag3)
+		AVRDUDE_PORT=usb
+		AVRDUDE_PROGRAMMER=jtag3
+		AVRDUDE_OPTIONS=
+	endif
+endif
+
+PROJECTDIRS += $(LOOCI_CONTIKI)/platform/avr-raven
+
+CFLAGS+=-I$(LOOCI_CONTIKI)/platform/avr-raven
+CFLAGS+=-D'WATCHDOG_CONF_TIMEOUT=WDTO_4S'
+
+CONTIKI_TARGET_SOURCEFILES += rs232.c cfs-eeprom.c eeprom.c random.c mmem.c sensors.c
+
+APPS+=looci-lcd-interface
+
+include $(LOOCI_CONTIKI)/cpu/avr/Makefile.early.avr

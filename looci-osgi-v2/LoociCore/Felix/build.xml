@@ -1,0 +1,28 @@
+<project name="Felix" basedir="." default="cleanBeforeRun">
+
+	<property name="felix.jar" value="bin/felix.jar"/>
+  
+	<property name="src.dir"     value="src"/>
+	<property name="cache.dir"	 value="felix-cache"/>
+	<property name="build.dir"   value="build"/>
+	<property name="classes.dir" value="${build.dir}/classes"/>
+	<property name="jar.dir"     value="${build.dir}/jar"/>
+	<property name="bundle.dir"     value="bundle"/> 
+	<property name="dup.dir"     value="bundle/plugins"/> 
+	<property name="looci.dir"     value="looci"/> 
+	<property name="deployment.dir"     value="looci/deployment"/> 
+	
+	<target name="cleanBeforeRun">
+		<delete dir="${cache.dir}"/>
+		 <delete>
+		    <fileset dir="${bundle.dir}" includes="Z*.jar"/>
+		 </delete>
+		<delete dir="${deployment.dir}"/>
+	</target>
+
+
+	<target name="clean" depends="cleanBeforeRun">
+		<delete dir="${dup.dir}"/>
+	</target>
+
+</project>

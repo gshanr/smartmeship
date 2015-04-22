@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LC_Comp_OrocosServer
+Bundle-SymbolicName: Comp_OrocosServer
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: lc_comp_orocosserver.OrocosServerComp
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: LoociOsgiServices;bundle-version="1.0.0"
+Import-Package: org.osgi.framework

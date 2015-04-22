@@ -1,0 +1,5 @@
+looci-lcd-interface_src = raven-lcd.c
+
+CFLAGS+=-I$(CONTIKI)/platform/avr-ravenlcd-looci
+
+CFLAGS+=-DRAVEN_LCD_INTERFACE=1

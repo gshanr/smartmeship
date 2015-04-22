@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LoociSensorDisplay
+Bundle-SymbolicName: Comp_SensorDisplay
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: looci.osgi.app.sensorDisplay.TempGraph
+Require-Bundle: LoociOsgiServices;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Import-Package: javax.swing
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

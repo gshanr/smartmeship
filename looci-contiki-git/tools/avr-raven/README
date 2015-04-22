@@ -1,0 +1,7 @@
+Howto generate an EEPROM file to upload to an AVR RAVEN?
+========================================================
+In the examples/blank directory. Execute:
+
+$ CFLAGS+="-DMAC_ADDRESS='{0x02, 0x11, 0x22, 0xff, 0xfe, 0x33, 0x44, 0x56}'" make blank.eep
+
+This will generate a .eep file for a mac address 02:11:22:ff:fe:33:44:56. This will result in a node with link-local ipv6-address: fe80::11:22ff:fe33:4456

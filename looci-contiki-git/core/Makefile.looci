@@ -1,0 +1,46 @@
+CONTIKI_PROJECT = loociCore
+all: $(CONTIKI_PROJECT)
+
+-include ${LOOCI}/lnk/lc_contiki/build/Makefile.debug
+-include ${LOOCI}/lnk/lc_contiki/build/Makefile.options
+
+CFLAGS += $(CFLAGSA)
+
+
+
+
+LOOCI_CONTIKI = ..
+
+
+
+PROJECTDIRS += $(LOOCI_CONTIKI)/build
+
+
+ifdef IMG
+	IMAGE_DIR = $(LOOCI_CONTIKI)/cmp_images/$(IMG)
+endif
+
+ifdef IMAGE_DIR
+	PROJECTDIRS += $(IMAGE_DIR)
+	include $(IMAGE_DIR)/Makefile.image
+endif
+
+ifdef CUSTOM_NODE_MAC
+	CFLAGS+=-DMY_NODE_MAC=$(CUSTOM_NODE_MAC)
+endif
+
+ifdef MY_NODE_ID
+	CFLAGS+=-DMY_NODE_ID=0x$(MY_NODE_ID)
+endif
+
+ifdef MY_CHANNEL
+	CFLAGS+=-DMY_CHANNEL_ID=$(MY_CHANNEL)
+endif
+
+ifdef WITH_IMG_INIT
+	CFLAGS+=-DWITH_IMAGE_INIT
+	PROJECT_SOURCEFILES+=image-init.c
+endif
+
+#include core looci
+include $(LOOCI_CONTIKI)/core/Makefile.include

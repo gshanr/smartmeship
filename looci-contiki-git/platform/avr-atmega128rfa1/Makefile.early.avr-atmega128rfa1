@@ -1,0 +1,10 @@
+AVRDUDE_PORT=usb
+
+PROJECTDIRS += $(LOOCI_CONTIKI)/platform/avr-atmega128rfa1
+
+CFLAGS+=-I$(LOOCI_CONTIKI)/platform/avr-atmega128rfa1
+#CFLAGS+=-D'WATCHDOG_CONF_TIMEOUT=WDTO_4S'
+
+CONTIKI_TARGET_SOURCEFILES += rs232.c cfs-eeprom.c eeprom.c random.c mmem.c sensors.c
+
+include $(LOOCI_CONTIKI)/cpu/avr/Makefile.early.avr

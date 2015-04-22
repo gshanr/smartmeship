@@ -1,0 +1,3 @@
+%.comp: %.ce
+	$(OBJCOPY) --rename-section .rodata.str1.1=.rodata $<
+	ld -i $< -o $@

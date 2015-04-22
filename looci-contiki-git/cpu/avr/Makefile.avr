@@ -1,0 +1,35 @@
+
+%.out: %.co $(PROJECT_OBJECTFILES) contiki-$(TARGET).a
+	$(LOOCI_CONTIKI)/tools/make-empty-symbols
+	$(CC) $(LDFLAGS) $(CFLAGS) -o $@ $^ $(LIBC) symbols.c -lc
+ifdef SYMBOLS
+	$(LOOCI_CONTIKI)/tools/avr-make-symbols $@ 
+	$(CC) $(LDFLAGS) $(CFLAGS) -o $@ $^ $(LIBC) symbols.c -lc
+	$(LOOCI_CONTIKI)/tools/avr-make-symbols $@
+	$(CC) $(LDFLAGS) $(CFLAGS) -o $@ $^ $(LIBC) symbols.c -lc
+	$(LOOCI_CONTIKI)/tools/avr-make-symbols $@
+	$(CC) $(LDFLAGS) $(CFLAGS) -o $@ $^ $(LIBC) symbols.c -lc
+endif 
+
+%.out: %
+
+%.myelf: %.out
+	cp $< $@
+
+%.hex: %.out
+	$(OBJCOPY) -R .eeprom -R .fuse -R .signature -O ihex $^ $@
+
+%.upload: %.hex
+	avrdude ${AVRDUDE_OPTIONS} ${AVRDUDE_PORT} ${PROGRAMMER} -p ${MCU} -U flash:w:$<
+
+%.utest:
+	${info fuses : ${FUSE_EEPWRITE} , ${FUSE_EEPREAD}}
+
+%.ueep: %.eep
+	avrdude ${AVRDUDE_OPTIONS} -P ${AVRDUDE_PORT} -c ${AVRDUDE_PROGRAMMER} -p ${MCU} -U hfuse:w:${FUSE_EEPWRITE}:m
+	sleep 5
+	avrdude ${AVRDUDE_OPTIONS} -P ${AVRDUDE_PORT} -c ${AVRDUDE_PROGRAMMER} -p ${MCU} -e -U eeprom:w:$< -U hfuse:w:${FUSE_EEPREAD}:m
+	@echo "FLASH HAS BEEN ERASED! REPROGRAM YOUR NODE!"
+
+%.fuses:
+	avrdude ${AVRDUDE_OPTIONS} -P ${AVRDUDE_PORT} -c ${AVRDUDE_PROGRAMMER} -p ${MCU} -U hfuse:w:${FUSES_HIGH}:m -U lfuse:w:${FUSES_LOW}:m -U efuse:w:${FUSES_EXTENDED}:m

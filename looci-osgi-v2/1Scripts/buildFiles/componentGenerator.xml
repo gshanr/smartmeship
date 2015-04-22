@@ -1,0 +1,48 @@
+<project name="LoociComponentBuilder" basedir="." default="generate">
+	<property environment="env"/>
+	<property name="comp.dir"     value="${basedir}/../../LoociComponents"/>
+	<property name="project.dir"  value="${comp.dir}/${project_name}"/>
+	<property name="template.dir" value="${basedir}/../../LoociComponents/.template"/>
+	
+	<target name="checkargs">
+		<echo>Generating new component ${project_name}...</echo>
+		<fail message="Missing project name." if="${project_name}"/>
+		<fail message="Missing package name." if="${package_name}"/>
+	</target>
+
+	<target name="generate" depends="checkargs">
+		<echo>Copying template directory for modification...</echo>
+		<mkdir dir="${project.dir}"/>
+		<copy todir="${project.dir}">
+			<fileset dir="${template.dir}" includes="**" excludes="README.FIRST"/>
+		</copy>
+
+		<echo>Renaming package folder...</echo>
+		<move file="${project.dir}/src/template" tofile="${project.dir}/src/${package_name}"/>
+
+		<echo>Renaming class files...</echo>
+		<move file="${project.dir}/src/${package_name}/Template.java" tofile="${project.dir}/src/${package_name}/${project_name}.java"/>
+		<move file="${project.dir}/src/${package_name}/TemplateComp.java" tofile="${project.dir}/src/${package_name}/${project_name}Comp.java"/>
+
+		<echo>Renaming stuff all over the place...</echo>
+
+		<replaceregexp file="${project.dir}/.project" match="\{PROJECT_NAME\}" replace="${project_name}" flags="g"/>
+		<replaceregexp file="${project.dir}/.project" match="\{LOOCI_DIR\}" replace="${env.LOOCI}" flags="g"/>
+
+		
+		<replaceregexp file="${project.dir}/build.xml" match="\{PROJECT_NAME\}" replace="${project_name}" flags="g"/>
+		<replaceregexp file="${project.dir}/build.xml" match="\{PACKAGE_NAME\}" replace="${package_name}" flags="g"/>
+
+		<replaceregexp file="${project.dir}/META-INF/MANIFEST.MF" match="\{PROJECT_NAME\}" replace="${project_name}" flags="g"/>
+		<replaceregexp file="${project.dir}/META-INF/MANIFEST.MF" match="\{PACKAGE_NAME\}" replace="${package_name}" flags="g"/>
+
+		<replaceregexp file="${project.dir}/src/${package_name}/${project_name}.java" match="\{PROJECT_NAME\}" replace="${project_name}" flags="g"/>
+		<replaceregexp file="${project.dir}/src/${package_name}/${project_name}.java" match="\{PACKAGE_NAME\}" replace="${package_name}" flags="g"/>
+
+		<replaceregexp file="${project.dir}/src/${package_name}/${project_name}Comp.java" match="\{PROJECT_NAME\}" replace="${project_name}" flags="g"/>
+		<replaceregexp file="${project.dir}/src/${package_name}/${project_name}Comp.java" match="\{PACKAGE_NAME\}" replace="${package_name}" flags="g"/>
+
+		<echo>Done! Now import it into eclipse :)</echo>
+	</target>
+
+</project>

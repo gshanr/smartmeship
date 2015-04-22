@@ -1,0 +1,57 @@
+#!/bin/bash
+cd ../build
+
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x01' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci01.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x02' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci02.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x03' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci03.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x04' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci04.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x05' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci05.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x06' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci06.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x07' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci07.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x08' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci08.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x09' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci09.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x10' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci10.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x11' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci11.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x12' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci12.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x13' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci13.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x14' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci14.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x15' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci15.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x16' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci16.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x17' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci17.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x18' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci18.eep
+
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x50' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci50.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x51' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci51.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x52' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci52.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x53' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci53.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x54' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci54.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x55' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci55.eep
+make clean; rm loociCore.eep; make loociCore.eep CFLAGSA='-DMY_NODE_ID=0x556' > debug.txt
+cp loociCore.eep /media/sf_VMFiles/tutorial/looci56.eep
+
+echo 'done looci'
+avr-size -C loociCore.elf

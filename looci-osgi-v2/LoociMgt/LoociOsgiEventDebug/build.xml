@@ -1,0 +1,15 @@
+<project name="LoociOsgiEventInterceptor" basedir="." default="clean-build">
+	<import file="../../1Scripts/buildFiles/coreMaster.xml"/>
+
+  <target name="compile">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true"
+	   includeAntRuntime="false">
+      <classpath>
+      	<pathelement location="${felix.jar}"/>
+      	<pathelement location="${loociservices.jar}"/>
+      </classpath>
+    </javac>
+  </target>
+
+</project>

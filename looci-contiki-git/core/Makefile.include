@@ -1,0 +1,149 @@
+ifeq ($(TARGET),)
+  -include ${LOOCI}/lnk/lc_contiki/build/Makefile.target
+  ifeq ($(TARGET),)
+    ${info TARGET not defined, using target 'native'}
+    TARGET=avr-raven
+  else
+    ${info using saved target '$(TARGET)'}
+  endif
+endif
+
+ifeq ($(PROGRAMMER),)
+  -include ${LOOCI}/lnk/lc_contiki/build/Makefile.programmer
+  ifeq ($(PROGRAMMER),)
+    ${info PROGRAMMER not defined, using programmer 'jtag2'}
+    PROGRAMMER=jtag2
+  else
+    ${info using saved programmer '$(PROGRAMMER)'}
+  endif
+endif
+
+
+
+# Allow local settings to be define in a seperate Makefile
+#-include Makefile.local
+# Allow LooCI wide local settings to be defined in a seperate Makefile
+#-include $(LOOCI)/Makefile.local
+
+ifndef CONTIKI
+  CONTIKI = $(LOOCI)/lnk/lc_contiki_os
+endif
+ifndef LOOCI_CONTIKI
+	LOOCI_CONTIKI= $(LOOCI)/lnk/lc_contiki
+endif
+
+ifdef AVR_LIBC
+	CFLAGS += -I$(AVR_LIBC)
+endif
+
+ifndef UIP_CONF_RPL
+UIP_CONF_RPL=0
+endif
+UIP_CONF_IPV6=1
+ENERGEST_CONF_ON=0
+LDFLAGS += -lc -lm 
+CFLAGS += -I$(LOOCI_CONTIKI)/core -I$(LOOCI_CONTIKI) -DMMEM_CONF_SIZE=2000 
+
+################## DEPLOYMENT ###################
+
+ifeq ($(WITH_LOADABLE_COMPONENTS),1)
+  PROJECT_SOURCEFILES += codebaseDeploymentSM.c
+  PROJECTDIRS += $(LOOCI_CONTIKI)/core/deployment
+  SYMBOLS = 1
+  CFLAGS += -DWITH_LOADABLE_COMPONENTS  
+endif
+
+
+  PROJECTDIRS += $(LOOCI_CONTIKI)/core/deployment
+  SYMBOLS = 1
+  
+  
+ CFLAGS += -DPROCESS_CONF_NO_PROCESS_NAMES=1
+
+
+#CFLAGS += -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
+#CFLAGS += -fno-inline-small-functions -fno-split-wide-types -fno-tree-scev-cprop
+
+
+ifeq ($(MAKE_COMPONENT),1)
+  CFLAGS += -nodefaultlibs -nostdlib -fno-builtin
+  CFLAGS += -ffunction-sections 
+  CFLAGS += $(LIBC)
+else
+	#project conf
+	CFLAGS += -DPROJECT_CONF_H=\"project-conf.h\"
+ 	 CFLAGS += -Wl,--relax,--export-dynamic
+  	 CFLAGS += -mcall-prologues
+ 	
+ 	# CFLAG that removes unused sections, will also remove potential lib calls
+ 	# use to see wether certain parts of code can be optimised out 	
+ 	CFLAGS += -Wl,--gc-sections,--print-gc-sections
+ 	
+ 	# add flags here to make certain some functions are inserted
+ 	 CFLAGS += -Wl,--undefined=_tf,--undefined=_lpt,--undefined=rng
+ 	 
+## ADD HERE YOUR OWN FUNCTIONS FOR OTA
+## Uncomment the next line and edit your function name
+#	CFLAGS += -Wl,--undefined=MyFunctionName
+##
+
+
+endif
+
+#####################STANDARD LOOCI ########################
+
+#debug functionality
+PROJECTDIRS += $(LOOCI_CONTIKI)/core/lib/debug
+PROJECT_SOURCEFILES += debug.c
+
+PROJECT_SOURCEFILES += looci.c
+#components
+PROJECT_SOURCEFILES += codebaseManager.c componentManager.c comp_services.c
+#events
+PROJECT_SOURCEFILES += event.c eventBus.c triggermodule.c interceptor.c
+#lib
+PROJECT_SOURCEFILES += vector.c mmem.c utils.c hexCoding.c timer_utils.c keyList.c
+ifeq ($(WITH_DOUBLE_SUPPORT),1)
+PROJECT_SOURCEFILES += math_utils.c
+endif
+#net
+PROJECT_SOURCEFILES += networking.c peers.c smartmesh.c
+#reconf
+PROJECT_SOURCEFILES += runtime_control_local.c introspection_local.c reconfigurationEngine.c
+
+
+PROJECTDIRS += $(LOOCI_CONTIKI)/core/components $(LOOCI_CONTIKI)/core/management $(LOOCI_CONTIKI)/core/events\
+	      $(LOOCI_CONTIKI)/core/net  $(LOOCI_CONTIKI)/core/reconfiguration $(LOOCI_CONTIKI)/core/lib $(LOOCI_CONTIKI)/core
+
+
+##################### extension includes ########################
+## Add here your additional source files and project folders
+## Make sure all necessary c files are added to PROJECT_SOURCEFILES, and the folder is added to PROJECT_DIRS
+
+
+##################### makefile includes ########################
+
+
+
+include $(LOOCI_CONTIKI)/platform/$(TARGET)/Makefile.early.$(TARGET)
+
+include $(CONTIKI)/Makefile.include
+
+$(OBJECTDIR)/looci.o: CFLAGS += -DAUTOSTART_ENABLE
+
+%.comp: CFLAGS += -nostartfiles -DBUILD_COMPONENT
+
+%.comp: %.ce $(COMPONENT_OBJECTFILES)
+	$(STRIP) -N __do_clear_bss -N __do_copy_data $^
+	$(CC) $(CFLAGS) -Wl,-r,--no-define-common $^ -o $@
+	avr-size $@
+	mv $@ temp.comp
+	python2 $(LOOCI_CONTIKI)/tools/elfstripper/strip.py temp.comp $@
+	rm temp.comp
+
+			
+	
+
+include $(LOOCI_CONTIKI)/platform/$(TARGET)/Makefile.$(TARGET)
+
+

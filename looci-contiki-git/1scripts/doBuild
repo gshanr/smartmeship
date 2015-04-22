@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#Build file for elf 
+#example clean build: ./doBuild
+#example: ./doBuild APP="appFolderNAme"
+
+
+cd ../build
+
+
+make loociCore.hex $@ > debug.txt
+make loociCore.elf $@ > debug.txt
+
+rm /media/sf_VMFiles/loociCore.elf
+cp loociCore.elf /media/sf_VMFiles/loociCore.elf
+echo 'done looci'
+avr-size -C loociCore.elf

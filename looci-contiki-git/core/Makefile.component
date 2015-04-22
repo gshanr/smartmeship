@@ -1,0 +1,37 @@
+DUP_DIR = $(LOOCI)/components/
+
+COMPONENT_OBJECTFILES = ${patsubst %.c,%.ce,$(COMPONENT_EXTRA_FILES)}
+ifdef COMPONENT_EXTRA_FILES
+$(warning "Notify : making component with additional files $(COMPONENT_OBJECTFILES)")
+endif
+
+ifeq ($(DEBUG),1)
+	CFLAGS += -DLOOCI_COMPONENT_DEBUG
+endif
+
+DEBUG := 0
+
+comp: cl
+	$(MAKE) $(CONTIKI_PROJECT).comp DEBUG=$(DEBUG)
+	$(MAKE) clean
+
+
+cl: clean
+	rm -f *.hex *.comp
+	
+
+	
+debug: cl
+	$(MAKE) $(CONTIKI_PROJECT).comp DEBUG=1
+	$(MAKE) clean
+
+copy: comp
+	cp $(CONTIKI_PROJECT).comp $(DUP_DIR)
+	
+cpd: debug
+	cp $(CONTIKI_PROJECT).comp $(DUP_DIR)
+	
+
+MAKE_COMPONENT = 1
+
+include $(LOOCI)/lnk/lc_contiki/core/Makefile.include

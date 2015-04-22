@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LoociTestComponent
+Bundle-SymbolicName: Comp_TestSensor
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-Activator: looci.osgi.app.testsensor.LoociSensor
+Require-Bundle: LoociOsgiServices;bundle-version="1.0.0"

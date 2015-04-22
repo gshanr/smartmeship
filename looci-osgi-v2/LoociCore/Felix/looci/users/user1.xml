@@ -1,0 +1,36 @@
+<UserProfile>
+<userName type="string">user1</userName>
+<partyName type="string">alfaOrg</partyName>
+<userList>
+<_0>
+<nodePermission type="byte">4</nodePermission>
+<key type="byteArray">aaaabbbbccccddddaaaabbbbccccdddd</key>
+<count type="short">0</count>
+<userId type="short">2</userId>
+<partyId type="short">2</partyId>
+<nodeId type="string">aaab::1</nodeId>
+<permissions>
+<_0>
+<Party type="short">2</Party>
+<permission type="byte">4</permission>
+</_0>
+</permissions>
+<rangePermissions/>
+</_0>
+<_1>
+<nodePermission type="byte">4</nodePermission>
+<key type="byteArray">aaaabbbbcccceeeeaaaabbbbcccceeee</key>
+<count type="short">0</count>
+<userId type="short">2</userId>
+<partyId type="short">2</partyId>
+<nodeId type="string">aaab::3</nodeId>
+<permissions>
+<_0>
+<Party type="short">2</Party>
+<permission type="byte">4</permission>
+</_0>
+</permissions>
+<rangePermissions/>
+</_1>
+</userList>
+</UserProfile>

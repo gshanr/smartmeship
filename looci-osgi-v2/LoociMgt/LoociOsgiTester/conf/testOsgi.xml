@@ -1,0 +1,15 @@
+<TestConfig>
+<platform>looci.osgi</platform>
+<node_1>aaab::1</node_1>
+<node_2>aaab::2</node_2>
+<tempSensor>testSensor.jar</tempSensor>
+<tempFilter>testFilter.jar</tempFilter>
+<sensorName>testSensor</sensorName>
+<filterName>testFilter</filterName>
+<doFreshNodeTest>true</doFreshNodeTest>
+<doCodebaseTest>true</doCodebaseTest>
+<doComponentTest>true</doComponentTest>
+<doWireTest>true</doWireTest>
+<doPropertiesTest>true</doPropertiesTest>
+<doMiscTest>true</doMiscTest>
+</TestConfig>

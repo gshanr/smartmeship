@@ -1,0 +1,15 @@
+<TestConfig>
+<platform>looci.avrraven</platform>
+<node_1>node54</node_1>
+<node_2>node55</node_2>
+<tempSensor>testSensor.comp</tempSensor>
+<tempFilter>testFilter.comp</tempFilter>
+<sensorName>testSensor</sensorName>
+<filterName>testFilter</filterName>
+<doFreshNodeTest>true</doFreshNodeTest>
+<doCodebaseTest>true</doCodebaseTest>
+<doComponentTest>true</doComponentTest>
+<doWireTest>true</doWireTest>
+<doPropertiesTest>true</doPropertiesTest>
+<doMiscTest>true</doMiscTest>
+</TestConfig>

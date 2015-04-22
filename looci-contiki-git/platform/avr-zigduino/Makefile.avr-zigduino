@@ -1,0 +1,7 @@
+# Make sure the mac address isn't overwritten
+CFLAGS += -DCFS_EEPROM_CONF_OFFSET=64
+#CFLAGS += -DUIP_CONF_TCP_MSS=70
+
+
+
+include $(LOOCI_CONTIKI)/cpu/avr/Makefile.avr

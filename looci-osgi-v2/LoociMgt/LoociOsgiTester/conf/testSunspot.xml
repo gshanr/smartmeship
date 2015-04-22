@@ -1,0 +1,15 @@
+<TestConfig>
+<platform>looci.sunspot</platform>
+<node_1>fddb:e5ed:6fd8:beef:214:4f01:0:64db</node_1>
+<node_2>fddb:e5ed:6fd8:beef:214:4f01:0:59bb</node_2>
+<tempSensor>/Users/klaas/SunSPOT/myProjects/looci_v1.1-sunspot-yellow/examples/TempSensor/suite/TempSensor_1.0.0.jar</tempSensor>
+<tempFilter>/Users/klaas/SunSPOT/myProjects/looci_v1.1-sunspot-yellow/examples/TempFilter/suite/TempFilter_1.0.0.jar</tempFilter>
+<sensorName>TempSensor_1.0.0.jar</sensorName>
+<filterName>TempFilter_1.0.0.jar</filterName>
+<doFreshNodeTest>false</doFreshNodeTest>
+<doCodebaseTest>false</doCodebaseTest>
+<doComponentTest>false</doComponentTest>
+<doWireTest>true</doWireTest>
+<doPropertiesTest>false</doPropertiesTest>
+<doMiscTest>false</doMiscTest>
+</TestConfig>

@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LoociOsgiServicesExt
+Bundle-SymbolicName: LoociOsgiServicesExt
+Bundle-Version: 1.0.0
+Export-package: looci.osgi.servExt.appInfo,
+ looci.osgi.servExt.mgt
+Import-Package: javax.net,
+ org.osgi.framework
+Require-Bundle: LoociOsgiServices;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

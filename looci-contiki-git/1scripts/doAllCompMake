@@ -1,0 +1,52 @@
+#!/bin/bash
+echo "cleaning build and comp files"
+cd ../build
+rm debug.txt 2> /tmp/temp.txt
+make clean > /tmp/temp.txt
+cd ..
+
+
+buildExamples(){
+	echo "going into examples"
+	cd examples
+	dirs=$(ls -d */)
+	for dir2 in $dirs
+	do
+		echo "making" $dir2
+		cd $dir2
+		make cl > debug.txt
+		make > debug.txt
+		rm debug.txt
+		cd ..
+	done
+	cd ..
+}
+
+buildApplications(){
+	echo "going into applications"
+	cd applications
+	dirs1=$(ls -d */)
+	for dir1 in $dirs1
+	do
+		echo "going into " $dir1
+		cd $dir1
+		dirs2=$(ls -d */)
+		for dir2 in $dirs2
+		do
+			echo "making" $dir2
+			cd $dir2
+			make cl > debug.txt
+			make > debug.txt
+			rm debug.txt
+			cd ..
+		done
+		cd ..
+	done
+}
+
+buildApplications
+
+
+
+rm /tmp/temp.txt
+echo "done make"

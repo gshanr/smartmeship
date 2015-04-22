@@ -1,0 +1,41 @@
+<project name="LoociOsgiServices" basedir="." default="clean-build">
+	<import file="../../1Scripts/buildFiles/coreMaster.xml"/>
+
+  <property environment="env"/>
+
+  <!-- if this is an android build, set the tmp deploy dir elsewhere -->
+  <condition property="tmp.dir" value="/mnt/sdcard/looci/deploy/">
+      <equals arg1="${build.platform}" arg2="android"/>
+  </condition>
+	
+	  <condition property="constants.file" value="LoociPlatformConstants_Android">
+	      <equals arg1="${build.platform}" arg2="android"/>
+	  </condition>
+  
+  <!-- this will only get set if build.platform was not android -->
+  <property name="tmp.dir" value="tmp/"/>
+  <property name="constants.file" value="LoociPlatformConstants_OS"/>
+  
+  <property name="constants.dir" value="${src.dir}/looci/osgi/serv/constants/platform"/>
+	
+  <!-- this section will fill the correct constants -->
+  <target name="pre-comp">
+      <echo>Modifying LoociConstants to suit ${build.platform}: deploy dir: ${tmp.dir}...</echo>
+  	<copy file="${constants.dir}/${constants.file}.java" tofile="${constants.dir}/LoociPlatformConstants.java" overwrite="true" />
+  	<replaceregexp file="${constants.dir}/LoociPlatformConstants.java"
+  	          match="${constants.file}"
+  	          replace="LoociPlatformConstants"/>
+  		
+  </target>
+  
+  <target name="compile" depends="pre-comp">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" debug="true" includeAntRuntime="false">
+      <classpath>
+	<pathelement location="${felix.jar}"/>
+      </classpath>
+    </javac>
+  </target>
+	
+
+</project>

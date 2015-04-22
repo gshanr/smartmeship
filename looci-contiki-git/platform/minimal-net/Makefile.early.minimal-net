@@ -1,0 +1,5 @@
+PROJECTDIRS += $(LOOCI)/platform/minimal-net
+
+PROJECT_SOURCEFILES += elfloader-x86.c symtab.c
+
+include $(LOOCI)/cpu/native/Makefile.early.native 

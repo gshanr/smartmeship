@@ -1,0 +1,31 @@
+${info loading AVR zigduino early makefile fuses}
+
+FUSE_EEPWRITE=0x9B
+FUSE_EEPREAD=0x93
+
+FUSES_HIGH=0x93
+FUSES_LOW=0xFF
+FUSES_EXTENDED=0xF5
+
+ifndef AVRDUDE_PROGRAMMER
+	ifeq ($(PROGRAMMER),jtag2)
+		AVRDUDE_PORT=usb
+		AVRDUDE_PROGRAMMER=jtag2isp
+		AVRDUDE_OPTIONS=
+	endif
+	
+	ifeq ($(PROGRAMMER),jtag3)
+		AVRDUDE_PORT=usb
+		AVRDUDE_PROGRAMMER=jtag3isp
+		AVRDUDE_OPTIONS= -B 1
+	endif
+endif
+
+PROJECTDIRS += $(LOOCI_CONTIKI)/platform/avr-zigduino
+
+CFLAGS+=-I$(LOOCI_CONTIKI)/platform/avr-zigduino
+CFLAGS+=-D'WATCHDOG_CONF_TIMEOUT=WDTO_4S'
+
+CONTIKI_TARGET_SOURCEFILES += rs232.c cfs-eeprom.c eeprom.c random.c mmem.c sensors.c
+
+include $(LOOCI_CONTIKI)/cpu/avr/Makefile.early.avr

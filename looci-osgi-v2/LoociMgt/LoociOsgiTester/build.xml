@@ -1,0 +1,29 @@
+<project name="LoociOsgiTester" basedir="." default="clean-build">
+	<import file="../../1Scripts/buildFiles/coreMaster.xml"/>
+	<property name="xmlLib.jar" value="lib/XmlLibrary.jar"/>
+	
+
+  <target name="compile">
+    <mkdir dir="${classes.dir}"/>
+    <javac srcdir="${src.dir}" destdir="${classes.dir}" 
+	   includeAntRuntime="false">
+      <classpath>
+		<pathelement location="${felix.jar}"/>
+		<pathelement location="${loociservices.jar}"/>
+		<pathelement location="${loociservicesext.jar}"/>
+      	<pathelement location="${xmlLib.jar}"/>
+      </classpath>
+    </javac>
+  </target>
+
+	  <target name="jar" depends="compile">
+	    <mkdir dir="${jar.dir}"/>
+	    <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}" manifest="META-INF/MANIFEST.MF">
+	        <fileset dir="${classes.dir}"/>
+	        <fileset dir="${src.dir}" includes="**/*.java"/>
+	    	<zipgroupfileset dir="lib" includes="*.jar"/>
+	    </jar>
+	  </target>
+		
+
+</project>

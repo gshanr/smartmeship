@@ -1,0 +1,77 @@
+
+<project name="LoociOsgiDeploySunSPOT" basedir="." default="clean-build">
+
+    <property name="felix.dir" value = "../../LoociCore/Felix"/>	
+    <property name="dup.dir"     value="${felix.dir}/bundle/plugins"/> 
+		  
+    <property name="felix.jar" value="${felix.dir}/bin/felix.jar"/>
+    <property name="loociservices.jar" value="${dup.dir}/LoociOsgiServices.jar"/>
+    <property name="loociservicesext.jar" value="${dup.dir}/LoociOsgiServicesExt.jar"/>
+        
+    <condition property="missing-sunspot-sdk">
+        <not>
+            <available file="${user.home}/.sunspot.properties"/>
+        </not>
+    </condition>
+    <fail message="No SunSPOT SDK was found." if="missing-sunspot-sdk"/>
+    <property file="${user.home}/.sunspot.properties"/>
+    <property name="sunspotSDK.dir" value="${sunspot.home}"/>
+    <property name="lib.dir"     value="${sunspotSDK.dir}/lib"/>
+        
+<!--    <property name="sunspotSDK.dir" value="/Users/klaas/SunSPOT/sdk-yellow-101117-1"/>-->
+<!--    <property name="lib.dir"     value="${sunspotSDK.dir}/lib"/>-->
+    <property name="spotclient_host.jar" value="${lib.dir}/spotclient_host.jar"/>
+    <property name="spotlib_common.jar" value="${lib.dir}/spotlib_common.jar"/>
+    <property name="RXTXcomm.jar" value="${lib.dir}/RXTXcomm.jar"/>
+    <property name="squawk_common.jar" value="${lib.dir}/squawk_common.jar"/>
+    <property name="signing_host.jar" value="${lib.dir}/signing_host.jar"/>
+    <property name="spotlib_host.jar" value="${lib.dir}/spotlib_host.jar"/>
+    <property name="multihop_common.jar" value="${lib.dir}/multihop_common.jar"/>
+    <property name="LooCI_2.0.0.jar" value="${lib.dir}/LooCI_2.0.0.jar"/>
+
+    <property name="src.dir"     value="src"/>
+    <property name="build.dir"   value="build"/>   
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    <property name="jar.dir"     value="${build.dir}/jar"/>
+  
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" 
+           includeAntRuntime="false">
+            <classpath>
+                <pathelement location="${LooCI_2.0.0.jar}"/>
+                
+                <pathelement location="${felix.jar}"/>
+                <pathelement location="${loociservices.jar}"/>
+                <pathelement location="${loociservicesext.jar}"/>
+                
+                <pathelement location="${spotclient_host.jar}"/>
+                <pathelement location="${spotlib_common.jar}"/>
+                <pathelement location="${RXTXcomm.jar}"/>
+                <pathelement location="${squawk_common.jar}"/>
+                <pathelement location="${signing_host.jar}"/>
+                <pathelement location="${spotlib_host.jar}"/>
+                <pathelement location="${multihop_common.jar}"/>
+        
+            </classpath>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="${jar.dir}"/>
+        <jar destfile="${jar.dir}/${ant.project.name}.jar" basedir="${classes.dir}" manifest="META-INF/MANIFEST.MF">
+            <zipfileset dir="${lib.dir}" includes="LooCI_2.0.0.jar,spotclient_host.jar,spotlib_common.jar,RXTXcomm.jar,squawk_common.jar,signing_host.jar,spotlib_host.jar,multihop_common.jar" prefix="lib"/>
+        </jar>
+    </target>
+
+    <target name="copy" if="dup.dir">
+        <copy file="${jar.dir}/${ant.project.name}.jar" todir="${dup.dir}"/>
+    </target>
+    
+    <target name="clean-build" depends="clean,jar,copy"/>
+
+</project>

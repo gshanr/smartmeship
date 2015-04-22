@@ -1,0 +1,9 @@
+This folder contains the make files for building the core LooCI image for contiki
+The following files should be present:
+Makefile.debug
+Makefile.options
+Makefile.programmer
+Makefile.target
+
+If these are not present, please copy them from the defaults folder or run the setupLoociContiki.sh script in the looci contiki folder.
+

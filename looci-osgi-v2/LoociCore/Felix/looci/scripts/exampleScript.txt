@@ -1,0 +1,12 @@
+#this script is an example script that deploys a sensor and display to localhost and enables them both
+# the # is comment
+# = sign assigns the output string of the script to the variable before
+# when a word is surrounded by $, it will be looked up for a previous assignment.
+# if not yet assigned, it will return null, and cause errors !!
+sensorId=deploy comps/sensor.jar ::1 looci.osgi
+displayId=deploy comps/display.jar ::1 looci.osgi
+sensorIid=instantiate $sensorId$ ::1
+displayIid=instantiate $displayId$ ::1
+wireLocal 129 $sensorIid$ $displayIid$ ::1
+activate $sensorIid$ ::1
+activate $displayIid$ ::1

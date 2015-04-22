@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: TutorialBackend
+Bundle-SymbolicName: Comp_TutorialBackend
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: javax.swing
+Bundle-Activator: looci.osgi.app.tutorialBackend.LoociTutorialBackend
+Require-Bundle: LoociOsgiServices;bundle-version="1.0.0"

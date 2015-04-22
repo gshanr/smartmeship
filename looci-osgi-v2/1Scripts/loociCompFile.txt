@@ -1,0 +1,18 @@
+# this file declares the which components will be build and started by the build command.
+# b declares bundles that need to be compiled. The path is the path to the component folder
+# the foldername must be both the name of the folder where the component is in, as the project name of the ant file
+# this will be the name of the compiled jar
+# b path foldername
+# d declares folders that from then on can be used in short hand
+# pred declared folders are looci, coreEnv, mgtEnv, and osgi
+## please use # as comments. Empty lines are also not counted
+b $coreEnv LoociOsgiServices
+b $coreEnv LoociOsgiRuntime
+b $mgtEnv LoociOsgiServicesExt
+b $mgtEnv LoociOsgiMgtClient
+b $mgtEnv LoociOsgiDeploy
+b $mgtEnv LoociOsgiDeployOsgi
+b $mgtEnv LoociOsgiDeployRaven
+b $mgtEnv LoociOsgiGuiClient
+b $mgtEnv LoociOsgiNetworkVisualizer
+b $mgtEnv LoociOsgiDeploySMesh

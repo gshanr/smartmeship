@@ -1,0 +1,146 @@
+using saved target 'avr-zigduino'
+using saved programmer 'jtag3'
+loading AVR zigduino early makefile fuses
+mkdir obj_avr-zigduino
+  CC        ../core/looci.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/mmem.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rime/rimeaddr.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rime/timesynch.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rime/rimestats.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/cxmac.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/xmac.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/nullmac.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/lpp.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/frame802154.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/sicslowmac.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/nullrdc.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/nullrdc-noframer.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/mac.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/framer-nullmac.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/framer-802154.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/csma.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/contikimac.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac/phase.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/process.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/procinit.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/autostart.c
+  CC        ../core/deployment/elfloader.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/profile.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/timetable.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/timetable-aggregate.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/compower.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/dev/serial-line.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/memb.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/timer.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/list.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/etimer.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/ctimer.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/energest.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/rtimer.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/stimer.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/trickle-timer.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/print-stats.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/ifft.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/crc16.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/random.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/checkpoint.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/ringbuf.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/settings.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/dhcpc.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/hc.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/nbr-table.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/netstack.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/packetbuf.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/packetqueue.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/psock.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/queuebuf.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/resolv.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/sicslowpan.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/simple-udp.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/tcpdump.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/tcpip.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uaodv-rt.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uaodv.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-debug.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-ds6-route.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-ds6-nbr.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-ds6.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-fw-drv.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-fw.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-icmp6.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-nd6.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-neighbor.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-over-mesh.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-packetqueue.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-split.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip-udp-packet.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip6.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uip_arp.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/uiplib.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys/mt.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/dev/nullradio.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip/dn_serial_mg.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip/dn_serial_mt.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip/dn_ipmg.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip/dn_ipmt.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip/dn_hdlc.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip/dn_endianness.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip/dn_uart.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip/fakeuip.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/dev/rs232.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/cfs/cfs-eeprom.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/dev/eeprom.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/sensors.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/./contiki-main.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/./params.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/./button-sensor.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/./temperature-sensor.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/./battery-sensor.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/dev/clock.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/./mtarch.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/dev/flash.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/./leds-arch.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/./watchdog.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/./rtimer-arch.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/./bootloader.c
+  CC        ../cpu/avr/elfloader-avr.c
+  CC        ../cpu/avr/symtab-avr.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/dev/leds.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/radio/rf230bb/rf230bb.c
+  CC        /Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/radio/rf230bb/halbb.c
+  AR        contiki-avr-zigduino.a
+  CC        ../core/loociCore.c
+  CC        ../components/tutorialComponents/temperatureSensor/tempSensor.c
+  CC        ../cmp_images/tempfilterBuild/image-init.c
+  CC        ../core/deployment/codebaseDeploymentSM.c
+  CC        ../core/lib/debug/debug.c
+  CC        ../core/management/codebaseManager.c
+  CC        ../core/management/componentManager.c
+  CC        ../core/components/comp_services.c
+  CC        ../core/events/event.c
+  CC        ../core/events/eventBus.c
+  CC        ../core/events/triggermodule.c
+  CC        ../core/lib/interceptor.c
+  CC        ../core/lib/vector.c
+  CC        ../core/lib/utils.c
+  CC        ../core/lib/hexCoding.c
+  CC        ../core/lib/timer_utils.c
+  CC        ../core/lib/keyList.c
+  CC        ../core/net/networking.c
+  CC        ../core/net/peers.c
+  CC        ../core/net/smartmesh.c
+  CC        ../core/reconfiguration/runtime_control_local.c
+  CC        ../core/reconfiguration/introspection_local.c
+  CC        ../core/reconfiguration/reconfigurationEngine.c
+../tools/make-empty-symbols
+avr-gcc -lc -lm  -mmcu=atmega128rfa1 -Wl,-Map=contiki-avr-zigduino.map -Wl,--section-start=.bootloader=0x1F800 -Wl,--gc-sections -DLOOCI_ANNOUNCE_BOOT -DLOOCI_CSTORE_DEBUG -DLOOCI_DEPLOYMENT_DEBUG -DELFLOAD_DEBUG -DLOOCI_COMPONENT_DEBUG  -DMY_NR_COMPS=2 -DMY_COMPS=reconfig__C,temp_sample__C -DMY_NODE_ID=0x55 -DMY_CHANNEL_ID=26 -DWITH_IMAGE_INIT -I../core -I.. -DMMEM_CONF_SIZE=2000  -DWITH_LOADABLE_COMPONENTS   -DPROCESS_CONF_NO_PROCESS_NAMES=1 -DPROJECT_CONF_H=\"project-conf.h\" -Wl,--relax,--export-dynamic -mcall-prologues -Wl,--gc-sections,--print-gc-sections -Wl,--undefined=_tf,--undefined=_lpt,--undefined=rng -I../platform/avr-zigduino -D'WATCHDOG_CONF_TIMEOUT=WDTO_4S' -DCONTIKI=1 -DCONTIKI_TARGET_AVR_ZIGDUINO=1 -DWITH_UIP6=1 -DUIP_CONF_IPV6=1 -DUIP_CONF_IPV6_RPL=0 -DUIP_CONF_ROUTER=0 -Wall -mmcu=atmega128rfa1 -gdwarf-2 -fno-strict-aliasing -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino -I. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr  -DF_CPU=16000000UL -DAUTO_CRC_PADDING=2 -Os -ffunction-sections -fdata-sections -DRF230BB  -I. -I../build -I../cmp_images/tempfilterBuild -I../components/tutorialComponents/temperatureSensor -I../core/deployment -I../core/deployment -I../core/lib/debug -I../core/components -I../core/management -I../core/events -I../core/net -I../core/reconfiguration -I../core/lib -I../core -I../platform/avr-zigduino -I../cpu/avr -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/apps -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/net -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/loader -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/dev -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/radio/rf230bb -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/dev -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rime -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rpl -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/cfs -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/ctk -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/ctk -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/loader -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/ -DCONTIKI_VERSION_STRING=\"Contiki-looci-1.0-beta20101116-239-g05d121e\" -DCFS_EEPROM_CONF_OFFSET=64 -o loociCore.out loociCore.co obj_avr-zigduino/tempSensor.o obj_avr-zigduino/image-init.o obj_avr-zigduino/codebaseDeploymentSM.o obj_avr-zigduino/debug.o obj_avr-zigduino/looci.o obj_avr-zigduino/codebaseManager.o obj_avr-zigduino/componentManager.o obj_avr-zigduino/comp_services.o obj_avr-zigduino/event.o obj_avr-zigduino/eventBus.o obj_avr-zigduino/triggermodule.o obj_avr-zigduino/interceptor.o obj_avr-zigduino/vector.o obj_avr-zigduino/mmem.o obj_avr-zigduino/utils.o obj_avr-zigduino/hexCoding.o obj_avr-zigduino/timer_utils.o obj_avr-zigduino/keyList.o obj_avr-zigduino/networking.o obj_avr-zigduino/peers.o obj_avr-zigduino/smartmesh.o obj_avr-zigduino/runtime_control_local.o obj_avr-zigduino/introspection_local.o obj_avr-zigduino/reconfigurationEngine.o contiki-avr-zigduino.a  symbols.c -lc
+../tools/avr-make-symbols loociCore.out 
+avr-gcc -lc -lm  -mmcu=atmega128rfa1 -Wl,-Map=contiki-avr-zigduino.map -Wl,--section-start=.bootloader=0x1F800 -Wl,--gc-sections -DLOOCI_ANNOUNCE_BOOT -DLOOCI_CSTORE_DEBUG -DLOOCI_DEPLOYMENT_DEBUG -DELFLOAD_DEBUG -DLOOCI_COMPONENT_DEBUG  -DMY_NR_COMPS=2 -DMY_COMPS=reconfig__C,temp_sample__C -DMY_NODE_ID=0x55 -DMY_CHANNEL_ID=26 -DWITH_IMAGE_INIT -I../core -I.. -DMMEM_CONF_SIZE=2000  -DWITH_LOADABLE_COMPONENTS   -DPROCESS_CONF_NO_PROCESS_NAMES=1 -DPROJECT_CONF_H=\"project-conf.h\" -Wl,--relax,--export-dynamic -mcall-prologues -Wl,--gc-sections,--print-gc-sections -Wl,--undefined=_tf,--undefined=_lpt,--undefined=rng -I../platform/avr-zigduino -D'WATCHDOG_CONF_TIMEOUT=WDTO_4S' -DCONTIKI=1 -DCONTIKI_TARGET_AVR_ZIGDUINO=1 -DWITH_UIP6=1 -DUIP_CONF_IPV6=1 -DUIP_CONF_IPV6_RPL=0 -DUIP_CONF_ROUTER=0 -Wall -mmcu=atmega128rfa1 -gdwarf-2 -fno-strict-aliasing -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino -I. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr  -DF_CPU=16000000UL -DAUTO_CRC_PADDING=2 -Os -ffunction-sections -fdata-sections -DRF230BB  -I. -I../build -I../cmp_images/tempfilterBuild -I../components/tutorialComponents/temperatureSensor -I../core/deployment -I../core/deployment -I../core/lib/debug -I../core/components -I../core/management -I../core/events -I../core/net -I../core/reconfiguration -I../core/lib -I../core -I../platform/avr-zigduino -I../cpu/avr -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/apps -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/net -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/loader -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/dev -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/radio/rf230bb -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/dev -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rime -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rpl -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/cfs -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/ctk -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/ctk -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/loader -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/ -DCONTIKI_VERSION_STRING=\"Contiki-looci-1.0-beta20101116-239-g05d121e\" -DCFS_EEPROM_CONF_OFFSET=64 -o loociCore.out loociCore.co obj_avr-zigduino/tempSensor.o obj_avr-zigduino/image-init.o obj_avr-zigduino/codebaseDeploymentSM.o obj_avr-zigduino/debug.o obj_avr-zigduino/looci.o obj_avr-zigduino/codebaseManager.o obj_avr-zigduino/componentManager.o obj_avr-zigduino/comp_services.o obj_avr-zigduino/event.o obj_avr-zigduino/eventBus.o obj_avr-zigduino/triggermodule.o obj_avr-zigduino/interceptor.o obj_avr-zigduino/vector.o obj_avr-zigduino/mmem.o obj_avr-zigduino/utils.o obj_avr-zigduino/hexCoding.o obj_avr-zigduino/timer_utils.o obj_avr-zigduino/keyList.o obj_avr-zigduino/networking.o obj_avr-zigduino/peers.o obj_avr-zigduino/smartmesh.o obj_avr-zigduino/runtime_control_local.o obj_avr-zigduino/introspection_local.o obj_avr-zigduino/reconfigurationEngine.o contiki-avr-zigduino.a  symbols.c -lc
+../tools/avr-make-symbols loociCore.out
+avr-gcc -lc -lm  -mmcu=atmega128rfa1 -Wl,-Map=contiki-avr-zigduino.map -Wl,--section-start=.bootloader=0x1F800 -Wl,--gc-sections -DLOOCI_ANNOUNCE_BOOT -DLOOCI_CSTORE_DEBUG -DLOOCI_DEPLOYMENT_DEBUG -DELFLOAD_DEBUG -DLOOCI_COMPONENT_DEBUG  -DMY_NR_COMPS=2 -DMY_COMPS=reconfig__C,temp_sample__C -DMY_NODE_ID=0x55 -DMY_CHANNEL_ID=26 -DWITH_IMAGE_INIT -I../core -I.. -DMMEM_CONF_SIZE=2000  -DWITH_LOADABLE_COMPONENTS   -DPROCESS_CONF_NO_PROCESS_NAMES=1 -DPROJECT_CONF_H=\"project-conf.h\" -Wl,--relax,--export-dynamic -mcall-prologues -Wl,--gc-sections,--print-gc-sections -Wl,--undefined=_tf,--undefined=_lpt,--undefined=rng -I../platform/avr-zigduino -D'WATCHDOG_CONF_TIMEOUT=WDTO_4S' -DCONTIKI=1 -DCONTIKI_TARGET_AVR_ZIGDUINO=1 -DWITH_UIP6=1 -DUIP_CONF_IPV6=1 -DUIP_CONF_IPV6_RPL=0 -DUIP_CONF_ROUTER=0 -Wall -mmcu=atmega128rfa1 -gdwarf-2 -fno-strict-aliasing -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino -I. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr  -DF_CPU=16000000UL -DAUTO_CRC_PADDING=2 -Os -ffunction-sections -fdata-sections -DRF230BB  -I. -I../build -I../cmp_images/tempfilterBuild -I../components/tutorialComponents/temperatureSensor -I../core/deployment -I../core/deployment -I../core/lib/debug -I../core/components -I../core/management -I../core/events -I../core/net -I../core/reconfiguration -I../core/lib -I../core -I../platform/avr-zigduino -I../cpu/avr -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/apps -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/net -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/loader -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/dev -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/radio/rf230bb -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/dev -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rime -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rpl -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/cfs -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/ctk -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/ctk -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/loader -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/ -DCONTIKI_VERSION_STRING=\"Contiki-looci-1.0-beta20101116-239-g05d121e\" -DCFS_EEPROM_CONF_OFFSET=64 -o loociCore.out loociCore.co obj_avr-zigduino/tempSensor.o obj_avr-zigduino/image-init.o obj_avr-zigduino/codebaseDeploymentSM.o obj_avr-zigduino/debug.o obj_avr-zigduino/looci.o obj_avr-zigduino/codebaseManager.o obj_avr-zigduino/componentManager.o obj_avr-zigduino/comp_services.o obj_avr-zigduino/event.o obj_avr-zigduino/eventBus.o obj_avr-zigduino/triggermodule.o obj_avr-zigduino/interceptor.o obj_avr-zigduino/vector.o obj_avr-zigduino/mmem.o obj_avr-zigduino/utils.o obj_avr-zigduino/hexCoding.o obj_avr-zigduino/timer_utils.o obj_avr-zigduino/keyList.o obj_avr-zigduino/networking.o obj_avr-zigduino/peers.o obj_avr-zigduino/smartmesh.o obj_avr-zigduino/runtime_control_local.o obj_avr-zigduino/introspection_local.o obj_avr-zigduino/reconfigurationEngine.o contiki-avr-zigduino.a  symbols.c -lc
+../tools/avr-make-symbols loociCore.out
+avr-gcc -lc -lm  -mmcu=atmega128rfa1 -Wl,-Map=contiki-avr-zigduino.map -Wl,--section-start=.bootloader=0x1F800 -Wl,--gc-sections -DLOOCI_ANNOUNCE_BOOT -DLOOCI_CSTORE_DEBUG -DLOOCI_DEPLOYMENT_DEBUG -DELFLOAD_DEBUG -DLOOCI_COMPONENT_DEBUG  -DMY_NR_COMPS=2 -DMY_COMPS=reconfig__C,temp_sample__C -DMY_NODE_ID=0x55 -DMY_CHANNEL_ID=26 -DWITH_IMAGE_INIT -I../core -I.. -DMMEM_CONF_SIZE=2000  -DWITH_LOADABLE_COMPONENTS   -DPROCESS_CONF_NO_PROCESS_NAMES=1 -DPROJECT_CONF_H=\"project-conf.h\" -Wl,--relax,--export-dynamic -mcall-prologues -Wl,--gc-sections,--print-gc-sections -Wl,--undefined=_tf,--undefined=_lpt,--undefined=rng -I../platform/avr-zigduino -D'WATCHDOG_CONF_TIMEOUT=WDTO_4S' -DCONTIKI=1 -DCONTIKI_TARGET_AVR_ZIGDUINO=1 -DWITH_UIP6=1 -DUIP_CONF_IPV6=1 -DUIP_CONF_IPV6_RPL=0 -DUIP_CONF_ROUTER=0 -Wall -mmcu=atmega128rfa1 -gdwarf-2 -fno-strict-aliasing -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino -I. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr  -DF_CPU=16000000UL -DAUTO_CRC_PADDING=2 -Os -ffunction-sections -fdata-sections -DRF230BB  -I. -I../build -I../cmp_images/tempfilterBuild -I../components/tutorialComponents/temperatureSensor -I../core/deployment -I../core/deployment -I../core/lib/debug -I../core/components -I../core/management -I../core/events -I../core/net -I../core/reconfiguration -I../core/lib -I../core -I../platform/avr-zigduino -I../cpu/avr -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/apps -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/net -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/loader -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/dev -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/cpu/avr/radio/rf230bb -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/smip -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/dev -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/mac -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rime -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/net/rpl -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/sys -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/cfs -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/ctk -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/lib/ctk -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/loader -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/core/. -I/Users/gowrir/Looci/looci/lnk/lc_contiki_os/platform/avr-zigduino/ -DCONTIKI_VERSION_STRING=\"Contiki-looci-1.0-beta20101116-239-g05d121e\" -DCFS_EEPROM_CONF_OFFSET=64 -o loociCore.out loociCore.co obj_avr-zigduino/tempSensor.o obj_avr-zigduino/image-init.o obj_avr-zigduino/codebaseDeploymentSM.o obj_avr-zigduino/debug.o obj_avr-zigduino/looci.o obj_avr-zigduino/codebaseManager.o obj_avr-zigduino/componentManager.o obj_avr-zigduino/comp_services.o obj_avr-zigduino/event.o obj_avr-zigduino/eventBus.o obj_avr-zigduino/triggermodule.o obj_avr-zigduino/interceptor.o obj_avr-zigduino/vector.o obj_avr-zigduino/mmem.o obj_avr-zigduino/utils.o obj_avr-zigduino/hexCoding.o obj_avr-zigduino/timer_utils.o obj_avr-zigduino/keyList.o obj_avr-zigduino/networking.o obj_avr-zigduino/peers.o obj_avr-zigduino/smartmesh.o obj_avr-zigduino/runtime_control_local.o obj_avr-zigduino/introspection_local.o obj_avr-zigduino/reconfigurationEngine.o contiki-avr-zigduino.a  symbols.c -lc
+avr-objcopy -R .eeprom -R .fuse -R .signature -O ihex loociCore.out loociCore.hex
+avrdude -p m128rfa1 -V -B 1 -P usb -c jtag3isp -U flash:w:loociCore.hex
+rm obj_avr-zigduino/vector.o obj_avr-zigduino/event.o obj_avr-zigduino/keyList.o obj_avr-zigduino/interceptor.o obj_avr-zigduino/eventBus.o obj_avr-zigduino/introspection_local.o obj_avr-zigduino/smartmesh.o loociCore.hex obj_avr-zigduino/networking.o obj_avr-zigduino/codebaseDeploymentSM.o obj_avr-zigduino/componentManager.o obj_avr-zigduino/debug.o obj_avr-zigduino/peers.o obj_avr-zigduino/comp_services.o obj_avr-zigduino/triggermodule.o loociCore.co obj_avr-zigduino/timer_utils.o obj_avr-zigduino/reconfigurationEngine.o loociCore.out obj_avr-zigduino/codebaseManager.o obj_avr-zigduino/utils.o obj_avr-zigduino/image-init.o obj_avr-zigduino/hexCoding.o obj_avr-zigduino/tempSensor.o obj_avr-zigduino/runtime_control_local.o
